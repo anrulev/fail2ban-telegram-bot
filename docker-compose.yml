@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  fail2ban-bot:
+    build: .
+    image: fail2ban-telegram-bot:latest
+    container_name: fail2ban-telegram-bot
+    restart: unless-stopped
+    # Монтирование лог-файла Fail2Ban только для чтения
+    volumes:
+      - /var/log/fail2ban.log:/var/log/fail2ban.log:ro
+      - ./logs:/app/logs
+    # Переменные окружения для конфигурации бота
+    environment:
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - TELEGRAM_CHAT_ID=${TELEGRAM_CHAT_ID}
+      - FAIL2BAN_LOG_FILE=/var/log/fail2ban.log
+      - CHECK_INTERVAL=${CHECK_INTERVAL:-60}
+      - MAX_ALERTS_PER_RUN=${MAX_ALERTS_PER_RUN:-10}
+      - ENABLE_FAIL2BAN_STATUS=${ENABLE_FAIL2BAN_STATUS:-false}
+      - BOT_LOG_FILE=/app/logs/fail2ban_bot.log
+    # Ограничение ресурсов
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+        reservations:
+          memory: 128M 
