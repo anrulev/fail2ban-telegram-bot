@@ -1,4 +1,4 @@
-# Fail2Ban Telegram Bot_
+# Fail2Ban Telegram Bot
 
 Бот для мониторинга Fail2Ban и отправки уведомлений о блокировках в Telegram.
 
