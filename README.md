@@ -1,5 +1,7 @@
 # Fail2Ban Telegram Bot
 
+![Язык-Русский](https://img.shields.io/badge/%D0%AF%D0%B7%D1%8B%D0%BA-%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-lightgrey?logo=google-translate&style=flat) [![Language-English](https://img.shields.io/badge/Language-English-blue?logo=google-translate&style=flat)](README.en.md)
+
 Бот для мониторинга Fail2Ban и отправки уведомлений о блокировках в Telegram.
 
 ## Особенности
