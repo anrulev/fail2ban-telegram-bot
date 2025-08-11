@@ -8,6 +8,8 @@ TELEGRAM_BOT_TOKEN=
 TELEGRAM_CHAT_ID=
 CHECK_INTERVAL=60
 MAX_ALERTS_PER_RUN=10
+# Опционально: имя сервера (автоматически определяется если не указано)
+HOSTNAME=
 ENABLE_FAIL2BAN_STATUS=false
 EOF
     echo "Пожалуйста, отредактируйте файл .env и укажите ваш токен бота и ID чата."

@@ -17,6 +17,8 @@ services:
       - FAIL2BAN_LOG_FILE=/var/log/fail2ban.log
       - CHECK_INTERVAL=${CHECK_INTERVAL:-60}
       - MAX_ALERTS_PER_RUN=${MAX_ALERTS_PER_RUN:-10}
+      # Опционально: имя сервера (автоматически определяется если не указано)
+      - HOSTNAME=${HOSTNAME:-}
       - ENABLE_FAIL2BAN_STATUS=${ENABLE_FAIL2BAN_STATUS:-false}
       - BOT_LOG_FILE=/app/logs/fail2ban_bot.log
     # Ограничение ресурсов

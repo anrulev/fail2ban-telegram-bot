@@ -7,6 +7,7 @@ import re
 import logging
 import subprocess
 import configparser
+import socket
 from datetime import datetime
 import shutil
 import telebot
@@ -39,6 +40,7 @@ class Config:
         fail2ban_log = os.environ.get('FAIL2BAN_LOG_FILE', '/var/log/fail2ban.log')
         check_interval = os.environ.get('CHECK_INTERVAL', '60')
         max_alerts = os.environ.get('MAX_ALERTS_PER_RUN', '10')
+        hostname = os.environ.get('HOSTNAME') or socket.gethostname()
         
         # Если есть переменные окружения, используем их
         if telegram_token and telegram_chat_id:
@@ -50,7 +52,8 @@ class Config:
             self.config['Fail2Ban'] = {
                 'LOG_FILE': fail2ban_log,
                 'CHECK_INTERVAL': check_interval,
-                'MAX_ALERTS_PER_RUN': max_alerts
+                'MAX_ALERTS_PER_RUN': max_alerts,
+                'HOSTNAME': hostname
             }
             logger.info("Конфигурация загружена из переменных окружения")
         # Иначе пытаемся загрузить из файла
@@ -67,7 +70,8 @@ class Config:
             self.config['Fail2Ban'] = {
                 'LOG_FILE': '/var/log/fail2ban.log',
                 'CHECK_INTERVAL': '60',  # в секундах
-                'MAX_ALERTS_PER_RUN': '10'
+                'MAX_ALERTS_PER_RUN': '10',
+                'HOSTNAME': socket.gethostname()
             }
             
             with open(config_file, 'w') as f:
@@ -264,6 +268,7 @@ class TelegramBot:
                 for ban in bans:
                     response += (
                         f"⏰ {ban['timestamp']}\n"
+                        f"🖥️ Сервер: {self.config.get('Fail2Ban', 'HOSTNAME')}\n"
                         f"🔒 Тюрьма: {ban['jail']}\n"
                         f"🔴 IP: {ban['ip']}\n\n"
                     )
@@ -272,8 +277,10 @@ class TelegramBot:
                 self.bot.reply_to(message, "Новых блокировок не обнаружено")
     
     def send_notification(self, ban):
+        hostname = self.config.get('Fail2Ban', 'HOSTNAME')
         message = (
             f"🚨 *Новая блокировка в Fail2Ban*\n\n"
+            f"🖥️ Сервер: {hostname}\n"
             f"⏰ Время: {ban['timestamp']}\n"
             f"🔒 Тюрьма: {ban['jail']}\n"
             f"🔴 IP-адрес: {ban['ip']}"

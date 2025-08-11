@@ -27,6 +27,7 @@ docker run -d \
   -v /var/log/fail2ban.log:/var/log/fail2ban.log:ro \
   -e TELEGRAM_BOT_TOKEN=your_telegram_bot_token_here \
   -e TELEGRAM_CHAT_ID=your_chat_id_here \
+  -e HOSTNAME=your-server-name \
   yourusername/fail2ban-telegram-bot
 ```
 
@@ -51,6 +52,7 @@ services:
       - FAIL2BAN_LOG_FILE=/var/log/fail2ban.log
       - CHECK_INTERVAL=60
       - MAX_ALERTS_PER_RUN=10
+      - HOSTNAME=your-server-name
 ```
 
 Затем запустите:
@@ -69,6 +71,7 @@ docker-compose up -d
 | `FAIL2BAN_LOG_FILE` | Путь к лог-файлу Fail2Ban внутри контейнера | `/var/log/fail2ban.log` |
 | `CHECK_INTERVAL` | Интервал проверки лога (в секундах) | `60` |
 | `MAX_ALERTS_PER_RUN` | Максимальное количество уведомлений за одну проверку | `10` |
+| `HOSTNAME` | Имя сервера для отображения в уведомлениях (опционально) | `socket.gethostname()` |
 | `ENABLE_FAIL2BAN_STATUS` | Включить команды `/status` и `/jails` (требуется доступ к `fail2ban-client`) | `false` |
 | `BOT_LOG_FILE` | Путь к лог-файлу бота | `/app/logs/fail2ban_bot.log` |
 

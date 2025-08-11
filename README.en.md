@@ -54,6 +54,8 @@ TELEGRAM_BOT_TOKEN=your_telegram_bot_token_here
 TELEGRAM_CHAT_ID=your_chat_id_here
 CHECK_INTERVAL=60
 MAX_ALERTS_PER_RUN=10
+# Optional: server name (auto-detected from system)
+HOSTNAME=your-server-name
 # Enable /status and /jails if fail2ban-client is available
 ENABLE_FAIL2BAN_STATUS=false
 ```
@@ -101,6 +103,7 @@ docker run -d \
   -e FAIL2BAN_LOG_FILE=/var/log/fail2ban.log \
   -e CHECK_INTERVAL=60 \
   -e MAX_ALERTS_PER_RUN=10 \
+  -e HOSTNAME=your-server-name \
   -e ENABLE_FAIL2BAN_STATUS=false \
   fail2ban-telegram-bot
 ```
@@ -246,5 +249,3 @@ docker-compose up -d
 ## License
 
 MIT
-
-
