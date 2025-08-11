@@ -1,10 +1,6 @@
-# Fail2Ban Telegram Bot
+# Fail2Ban Telegram Bot — Docker Hub (для мейнтейнеров)
 
-Бот для мониторинга Fail2Ban и отправки уведомлений о блокировках в Telegram.
-
-![Docker Pulls](https://img.shields.io/docker/pulls/yourusername/fail2ban-telegram-bot)
-![Docker Stars](https://img.shields.io/docker/stars/yourusername/fail2ban-telegram-bot)
-![Docker Image Size](https://img.shields.io/docker/image-size/yourusername/fail2ban-telegram-bot)
+Этот документ предназначен для мейнтейнеров репозитория. Не публикуется в основном README.
 
 ## Что делает этот образ
 
@@ -96,7 +92,7 @@ docker-compose up -d
 - Лог-файл Fail2Ban монтируется только для чтения
 - Не требуется доступ к сокету Fail2Ban или другим системным ресурсам
 
-## Примечания_
+## Примечания
 
 - Этот образ не устанавливает и не настраивает Fail2Ban. Предполагается, что Fail2Ban уже установлен и настроен на хост-системе.
 - Контейнер должен иметь доступ к лог-файлу Fail2Ban. Убедитесь, что файл доступен для чтения:
@@ -134,4 +130,6 @@ docker-compose up -d
 
 ## Исходный код
 
-Исходный код доступен на [GitHub](https://github.com/yourusername/fail2ban-telegram-bot). 
+Исходный код доступен на [GitHub](https://github.com/anrulev/fail2ban-telegram-bot).
+
+

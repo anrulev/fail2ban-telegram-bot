@@ -235,6 +235,14 @@ services:
 docker-compose up -d
 ```
 
+<details>
+  <summary>Для мейнтейнеров</summary>
+
+- Документация по публикации образа: [`docs/maintainers/DOCKER_HUB.md`](docs/maintainers/DOCKER_HUB.md)
+- Вспомогательные скрипты: [`scripts/maintainers/`](scripts/maintainers/)
+
+</details>
+
 ## Лицензия
 
 MIT 

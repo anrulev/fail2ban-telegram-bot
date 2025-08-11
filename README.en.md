@@ -235,6 +235,14 @@ Then start again:
 docker-compose up -d
 ```
 
+<details>
+  <summary>For maintainers</summary>
+
+- Docker Hub publishing docs: [`docs/maintainers/DOCKER_HUB.md`](docs/maintainers/DOCKER_HUB.md)
+- Helper scripts: [`scripts/maintainers/`](scripts/maintainers/)
+
+</details>
+
 ## License
 
 MIT
