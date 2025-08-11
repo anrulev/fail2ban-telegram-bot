@@ -35,7 +35,7 @@ Bot for monitoring Fail2Ban and sending ban notifications to Telegram.
 ### 2. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/fail2ban-telegram-bot.git
+git clone https://github.com/anrulev/fail2ban-telegram-bot.git
 cd fail2ban-telegram-bot
 ```
 
@@ -233,19 +233,6 @@ Then start again:
 
 ```bash
 docker-compose up -d
-```
-
-## Publishing the image to Docker Hub
-
-If you want to publish your image to Docker Hub:
-
-```bash
-# Edit the username in the script
-nano build_and_push.sh  # Change DOCKER_HUB_USERNAME
-
-# Run the script
-chmod +x build_and_push.sh
-./build_and_push.sh
 ```
 
 ## License

@@ -60,3 +60,6 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.temp
+
+# Docs
+README_RU_OLD.md

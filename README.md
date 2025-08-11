@@ -35,7 +35,7 @@
 ### 2. Клонирование репозитория
 
 ```bash
-git clone https://github.com/yourusername/fail2ban-telegram-bot.git
+git clone https://github.com/anrulev/fail2ban-telegram-bot.git
 cd fail2ban-telegram-bot
 ```
 
@@ -233,19 +233,6 @@ services:
 
 ```bash
 docker-compose up -d
-```
-
-## Публикация образа в Docker Hub
-
-Если вы хотите опубликовать свой образ в Docker Hub:
-
-```bash
-# Редактирование имени пользователя в скрипте
-nano build_and_push.sh  # Измените DOCKER_HUB_USERNAME
-
-# Запуск скрипта
-chmod +x build_and_push.sh
-./build_and_push.sh
 ```
 
 ## Лицензия
