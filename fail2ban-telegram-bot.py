@@ -13,6 +13,12 @@ import shutil
 import telebot
 from telebot import types
 
+# Импорт информации о версии
+try:
+    from version import __version__
+except ImportError:
+    __version__ = "unknown"
+
 # Настройка логирования
 def _init_logger() -> logging.Logger:
     log_file = os.environ.get('BOT_LOG_FILE', '/app/logs/fail2ban_bot.log')
@@ -200,7 +206,7 @@ class TelegramBot:
         @self.bot.message_handler(commands=['start', 'help'])
         def send_welcome(message):
             welcome_text = (
-                "👋 Привет! Я бот для мониторинга Fail2Ban.\n\n"
+                f"👋 Привет! Я бот для мониторинга Fail2Ban (v{__version__}).\n\n"
                 "Доступные команды:\n"
                 "/status - Общий статус Fail2Ban\n"
                 "/jails - Список активных тюрем\n"
